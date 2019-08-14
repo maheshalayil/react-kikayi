@@ -13,8 +13,6 @@ export const Categories = () => {
     }  
   });
 
-  console.log('categories', props.categories);
-
   // useEffect(()=> {
   //   (async () => {      
   //     await dispatch(loadCategory())
