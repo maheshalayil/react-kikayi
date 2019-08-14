@@ -2,9 +2,15 @@ import React, { Component } from 'react';
 import { useSelector } from 'react-redux'
 
 export const Categories = () => {
-  const categories = useSelector(state => state.categoryState.categories);
-  console.log('categories', categories)
+  
+  const props = useSelector(state => {
+    return {
+      categories: state.categoryState.categories
+    }  
+  });
+
+  console.log('categories', props.categories)
   return (
-    <div>Categories ( {categories.length} )</div>
+    <div>Categories ( {props.categories.length} )</div>
   )
 }
