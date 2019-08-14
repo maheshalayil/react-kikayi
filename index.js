@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { render } from 'react-dom';
-import Hello from './Hello';
+import { Categories } from './src/components/';
+import { Provider } from 'react-redux';
+import { makeStore } from './src/store/'
 import './style.css';
 
 class App extends Component {
@@ -14,13 +16,12 @@ class App extends Component {
   render() {
     return (
       <div>
-        <Hello name={this.state.name} />
-        <p>
-          Start editing to see some magic happen :)
-        </p>
+        <Categories />
       </div>
     );
   }
 }
 
-render(<App />, document.getElementById('root'));
+render(<Provider store={makeStore()}>
+      <App />
+    </Provider>, document.getElementById('root'));
