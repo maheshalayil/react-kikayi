@@ -1,9 +1,11 @@
+import { CATEGORY_LOADED } from '../../actions/types';
 const initialState = {
-  categories: []
+  categories: [],
+  category: {}
 }
 export const categoryReducer = (state = initialState, action) => {
-  if(action.type === 1)
-    return {...state, categories:[1]}
+  if(action.type === CATEGORY_LOADED)
+    return {...state, categories:action.payload}
     
   return state;
 }
