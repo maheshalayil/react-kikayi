@@ -3,40 +3,43 @@ import { useSelector, useDispatch } from "react-redux";
 import * as Actions from "../../actions/";
 import { withRouter, Link } from "react-router-dom";
 
-const CategoriesComponent = props => {
+const ProductsComponent = props => {
+  
   const dispatch = useDispatch();
-  const categories = useSelector(state => state.categoryState.categories);
+  const products = useSelector(state => state.productState.products);
+  
+  console.log('product state', products);
 
   useEffect(() => {
     (async () => {
-      if(categories.length === 0)
-        await dispatch(Actions.loadCategory());
+      if(products.length === 0)
+        await dispatch(Actions.loadProducts());
     })();
   }, []);
 
   const onAdd = () => {
-    dispatch(Actions.addCategory());
-    props.history.push("/category/save");
+    dispatch(Actions.addProduct());
+    props.history.push("/product/save");
   };
 
   const onEdit = item => {
-    dispatch(Actions.editCategory(item.id));
-    props.history.push("/category/save");
+    dispatch(Actions.editProduct(item.id));
+    props.history.push("/product/save");
   };
 
   const onDelete = item => {
-    dispatch(Actions.deleteCategory(item.id));
+    dispatch(Actions.deleteProduct(item.id));
   };
 
   const getImage = () => {
     return `images/gallary/${Math.floor(Math.random() * 30) + 1  }.png`;
   }
-  
+
   return (
     <section id="content">
       <div className="row">
         <div className="col s8">
-          <h5 className="header">Categories</h5>
+          <h5 className="header">Products</h5>
         </div>
         <div className="col s4">
           <button
@@ -49,7 +52,7 @@ const CategoriesComponent = props => {
       </div>
       <div className="row">
         <hr />
-        {categories.map(item => {
+        {products.map(item => {
           return (
             <div className="col s12 m3 l3" key={item.id}>
               <div className="card small gradient-45deg-light-blue-cyan gradient-shadow" style={{maxHeight:150}}>
@@ -79,4 +82,4 @@ const CategoriesComponent = props => {
     </section>
   );
 };
-export const Categories = withRouter(CategoriesComponent);
+export const Products = withRouter(ProductsComponent);

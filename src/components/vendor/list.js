@@ -1,42 +1,45 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import * as Actions from "../../actions/";
+import * as Actions from "../../actions";
 import { withRouter, Link } from "react-router-dom";
 
-const CategoriesComponent = props => {
+const VendorsComponent = props => {
+  
   const dispatch = useDispatch();
-  const categories = useSelector(state => state.categoryState.categories);
+  const vendors = useSelector(state => state.vendorState.vendors);
+  
+  console.log('vendor state', vendors);
 
   useEffect(() => {
     (async () => {
-      if(categories.length === 0)
-        await dispatch(Actions.loadCategory());
+      if(vendors.length === 0)
+        await dispatch(Actions.loadvendor());
     })();
   }, []);
 
   const onAdd = () => {
-    dispatch(Actions.addCategory());
-    props.history.push("/category/save");
+    dispatch(Actions.addvendor());
+    props.history.push("/vendor/save");
   };
 
   const onEdit = item => {
-    dispatch(Actions.editCategory(item.id));
-    props.history.push("/category/save");
+    dispatch(Actions.editvendor(item.id));
+    props.history.push("/vendor/save");
   };
 
   const onDelete = item => {
-    dispatch(Actions.deleteCategory(item.id));
+    dispatch(Actions.deletevendor(item.id));
   };
 
   const getImage = () => {
-    return `images/gallary/${Math.floor(Math.random() * 30) + 1  }.png`;
+    return `/images/avatar/avatar-${Math.floor(Math.random() * 10) + 1  }.png`;
   }
-  
+
   return (
     <section id="content">
       <div className="row">
         <div className="col s8">
-          <h5 className="header">Categories</h5>
+          <h5 className="header">Vendors</h5>
         </div>
         <div className="col s4">
           <button
@@ -49,13 +52,21 @@ const CategoriesComponent = props => {
       </div>
       <div className="row">
         <hr />
-        {categories.map(item => {
+        {vendors.map(item => {
           return (
             <div className="col s12 m3 l3" key={item.id}>
               <div className="card small gradient-45deg-light-blue-cyan gradient-shadow" style={{maxHeight:150}}>
-                <div className="card-image" style={{maxHeight:100}} >
-                  <img src={getImage()} alt="sample" />
-                  <span className="card-title">{item.name}</span>
+                <div className="card-image cyan" style={{maxHeight:130}} >
+                  <div className="row">
+                    <div className="col s4 mt-3">
+                      <img src={getImage()}></img>
+                    </div>
+                    <div className="col s8 white-text right mt-6">
+                      <div>{item.firstName} {item.lastName}</div>
+                      <div>{item.company}</div>
+                      <div>{item.phone}</div>
+                    </div>
+                  </div>
                 </div>
                 <div class="card-action">
                   <button
@@ -79,4 +90,4 @@ const CategoriesComponent = props => {
     </section>
   );
 };
-export const Categories = withRouter(CategoriesComponent);
+export const Vendors = withRouter(VendorsComponent);

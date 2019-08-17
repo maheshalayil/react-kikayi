@@ -4,6 +4,8 @@ import thunk from 'redux-thunk';
 
 const cr = combineReducers({
   categoryState : Reducers.categoryReducer,
+  productState : Reducers.productReducer,
+  vendorState : Reducers.vendorReducer,
   commonState : Reducers.commonReducer
 })
 

@@ -1,11 +1,17 @@
-import { CATEGORY_LOADED } from '../../actions/types';
+import * as ActionType from "../../actions/types";
 const initialState = {
   categories: [],
   category: {}
-}
+};
 export const categoryReducer = (state = initialState, action) => {
-  if(action.type === CATEGORY_LOADED)
-    return {...state, categories:action.payload}
-    
-  return state;
-}
+  switch (action.type) {
+    case ActionType.CATEGORY_LOADED:
+    case ActionType.CATEGORY_ADD:
+    case ActionType.CATEGORY_EDIT:
+    case ActionType.CATEGORY_SAVED:
+    case ActionType.CATEGORY_DELETED:
+      return action.state;
+    default:
+      return state;
+  }
+};

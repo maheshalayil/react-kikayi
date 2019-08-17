@@ -35,6 +35,18 @@ export const SideBar = () => {
                     <span className="nav-text">Categories</span>
                   </Link>
               </li>
+              <li className="bold">                             
+                <Link to="/products" className="waves-effect waves-cyan">
+                    <i className="material-icons">pie_chart_outlined</i>
+                    <span className="nav-text">Products</span>
+                  </Link>
+              </li>
+              <li className="bold">                             
+                <Link to="/vendors" className="waves-effect waves-cyan">
+                    <i className="material-icons">pie_chart_outlined</i>
+                    <span className="nav-text">Vendors</span>
+                  </Link>
+              </li>
             </ul>
           </li>
         </ul>

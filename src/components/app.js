@@ -13,12 +13,12 @@ export const App = () => {
   return (
     <Router>
       <div>
-        <SideBar />
-        {!props.progress ? null : (
+      {!props.progress ? null : (
           <div className="progress">
             <div className="indeterminate" />
           </div>
         )}
+        <SideBar />       
         {routes.map(route => (
           <Route
             key={route.path}

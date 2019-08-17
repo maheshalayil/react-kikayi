@@ -1,5 +1,6 @@
 import React from 'react';
-import { Categories, SaveCategory } from './'
+import { Categories, SaveCategory, Products, SaveProduct, Vendors, SaveVendor } from './'
+
 export const routes = [
     { path: '/',
       exact: true,
@@ -8,7 +9,19 @@ export const routes = [
     { path: '/categories',
       main: () => <Categories />
     },
-    { path: '/categories/save',
+    { path: '/category/save/:id?',
       main: () => <SaveCategory />
+    },
+    { path: '/products',
+      main: () => <Products />
+    },
+    { path: '/product/save/:id?',
+      main: () => <SaveProduct />
+    },
+    { path: '/vendors',
+      main: () => <Vendors />
+    },
+    { path: '/vendor/save/:id?',
+      main: () => <SaveVendor />
     }
   ]
