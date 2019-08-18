@@ -1,0 +1,19 @@
+{
+    "reactkika": {
+        "awscloudformation": {
+            "AuthRoleName": "react-kikayi-reactkika-20190818110504-authRole",
+            "UnauthRoleArn": "arn:aws:iam::538124765242:role/react-kikayi-reactkika-20190818110504-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::538124765242:role/react-kikayi-reactkika-20190818110504-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "react-kikayi-reactkika-20190818110504-deployment",
+            "UnauthRoleName": "react-kikayi-reactkika-20190818110504-unauthRole",
+            "StackName": "react-kikayi-reactkika-20190818110504",
+            "StackId": "arn:aws:cloudformation:us-west-2:538124765242:stack/react-kikayi-reactkika-20190818110504/f0e565c0-c179-11e9-b739-02245e26cad4"
+        },
+        "categories": {
+            "auth": {
+                "reactkikayic64eeabf": {}
+            }
+        }
+    }
+}

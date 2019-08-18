@@ -1,10 +1,16 @@
 import React from 'react';
-import { Categories, SaveCategory, Products, SaveProduct, Vendors, SaveVendor } from './'
+import { Categories, SaveCategory, Products, SaveProduct, Vendors, SaveVendor, Login, Register } from './'
 
 export const routes = [
     { path: '/',
       exact: true,
       main: () => <p>Home</p>
+    },
+    { path: '/auth/login',
+      main: () => <Login />
+    },
+    { path: '/auth/register',
+      main: () => <Register />
     },
     { path: '/categories',
       main: () => <Categories />

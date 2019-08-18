@@ -18,3 +18,4 @@ export const VENDOR_DELETED = 'VENDOR_DELETED';
 
 export const LOADING_START = 'LOADING_START';
 export const LOADING_STOP = 'LOADING_STOP';
+export const HIDE_SIDEBAR = 'HIDE_SIDEBAR';

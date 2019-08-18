@@ -1,4 +1,4 @@
-import { LOADING_START, LOADING_STOP } from "../../actions/types";
+import { LOADING_START, LOADING_STOP, HIDE_SIDEBAR } from "../../actions/types";
 
 const initialState = {
   showSidebar: true,
@@ -7,5 +7,6 @@ const initialState = {
 export const commonReducer = (state = initialState, action) => {
   if (action.type === LOADING_START) return { ...state, progress: true };
   if (action.type === LOADING_STOP) return { ...state, progress: false };
+  if (action.type === HIDE_SIDEBAR) return { ...state, showSidebar: false };
   return state;
 };
